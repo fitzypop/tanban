@@ -8,7 +8,7 @@ use crossterm::{
 };
 use std::{io, thread, time::Duration};
 use tui::{
-    backend::CrosstermBackend,
+    backend::{Backend, CrosstermBackend},
     widgets::{Block, Borders},
     Terminal,
 };
@@ -44,6 +44,21 @@ use tui::{
 //     }
 // }
 
+fn run<B: Backend>(terminal: &mut Terminal<B>) -> io::Result<()> {
+    loop {
+        terminal.draw(|f| {
+            let size = f.size();
+            let block = Block::default().title("Board").borders(Borders::ALL);
+            f.render_widget(block, size);
+        })?;
+
+        thread::sleep(Duration::from_millis(5000));
+        break;
+    }
+
+    Ok(())
+}
+
 fn main() -> Result<(), io::Error> {
     // setup terminal
     enable_raw_mode()?;
@@ -51,18 +66,17 @@ fn main() -> Result<(), io::Error> {
     let mut stdout = io::stdout();
     execute!(stdout, EnterAlternateScreen, EnableMouseCapture)?;
     let mut backend = CrosstermBackend::new(stdout);
+
+    // Set terminal title
     backend.execute(SetTitle("Tanban - Rust Kanban Board"))?;
 
     let mut terminal = Terminal::new(backend)?;
-    terminal.draw(|f| {
-        let size = f.size();
-        let block = Block::default().title("Block").borders(Borders::ALL);
-        f.render_widget(block, size);
-    })?;
 
-    thread::sleep(Duration::from_millis(5000));
+    // starts event loop
+    run(&mut terminal)?;
 
     // restore terminal
+    // todo! refactor this block into fn.
     disable_raw_mode()?;
     execute!(
         terminal.backend_mut(),
