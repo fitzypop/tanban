@@ -2,7 +2,7 @@
 
 TUI Kanban board, written in rust.
 
-Inspired by bashbunni's kanban project in golang.
+Inspired by [bashbunni's](https://www.youtube.com/watch?v=ZA93qgdLUzM) kanban project in golang.
 
 ## Installation
 
