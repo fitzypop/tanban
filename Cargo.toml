@@ -7,6 +7,7 @@ license-file = "LICENSE"
 description = "TUI Kanban Board"
 repository = "https://github.com/fitzypop/tanban"
 readme = "README.md"
+keywords = ["tui", "kanban", "cursive"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]

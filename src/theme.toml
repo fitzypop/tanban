@@ -4,7 +4,7 @@ borders = "simple" # Alternatives are "none" and "outset"
 [colors]
 background = "black"
 shadow = ["#000000", "black"]
-view = "#d3d7cf"
+view = "#d3d7cf"              # panel color
 
 primary = ["#111111"]
 secondary = "#EEEEEE"
