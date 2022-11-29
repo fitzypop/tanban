@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "FullConfig",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "default": "https://starship.rs/config-schema.json",
+            "type": "string"
+        },
+        "borders": {
+            "default": "",
+            "type": "string"
+        },
+        "colors": {
+            "background": {
+                "default": "blue",
+                "type": "string"
+            },
+            "shadow": [
+                "#000000",
+                "black"
+            ],
+            "view": "#d3d7cf",
+            "primary": [
+                "#111111"
+            ],
+            "secondary": "#EEEEEE",
+            "tertiary": "#444444",
+            "title_primary": "#ff5555",
+            "title_secondary": "#ffff55",
+            "highlight": "#F00",
+            "highlight_inactive": "#5555FF"
+        },
+        "shadow": {
+            "default": true,
+            "type": "boolean"
+        }
+    },
+    "additionalProperties": false,
+    "definitions": {}
+}
