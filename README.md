@@ -9,5 +9,6 @@ Inspired by [bashbunni's](https://www.youtube.com/watch?v=ZA93qgdLUzM) kanban pr
 Install at your own risk. This will probably be 'permanent alpha' software.
 
 ```sh
+# Pulls package down from crates.io
 cargo install tanban
 ```
